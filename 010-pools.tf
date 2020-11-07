@@ -1,8 +1,11 @@
 resource "openstack_lb_pool_v2" "pools" {
-  name        = var.name
-  protocol    = var.protocol
-  lb_method   = var.lb_method
-  listener_id = var.listener_id
+  name           = var.name
+  description    = var.description
+  protocol       = var.protocol
+  lb_method      = var.lb_method
+  listener_id    = var.listener_id
+  persistence    = var.persistence
+  admin_state_up = var.admin_state_up
 }
 
 resource "openstack_lb_member_v2" "members" {
