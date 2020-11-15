@@ -4,8 +4,15 @@ resource "openstack_lb_pool_v2" "pools" {
   protocol       = var.protocol
   lb_method      = var.lb_method
   listener_id    = var.listener_id
-  persistence    = var.persistence
   admin_state_up = var.admin_state_up
+  
+  dynamic "persistence" {
+    for_each = var.persistence == null ? [] : [var.persistence]
+    content {
+      type        = persistence.value["type"]
+      cookie_name = persistence.value["cookie_name"]
+    }
+  }
 }
 
 resource "openstack_lb_member_v2" "members" {
