@@ -23,7 +23,7 @@ variable "lb_method" {
 variable "persistence" {
   type=object({type=string, cookie_name=string})
   description="Omit this field to prevent session persistence. Indicates whether connections in the same session will be processed by the same Pool member or not. Type is the type of persistence mode. The current specification supports SOURCE_IP, HTTP_COOKIE, and APP_COOKIE. The cookie name uses when type equal APP_COOKIE."
-  default = null
+  default=null
 }
 
 variable "admin_state_up" {
