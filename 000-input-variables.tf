@@ -40,5 +40,5 @@ variable "listener_id" {
 
 variable "members" {
   type = list(object({address=string, protocol_port=number, subnet_id=string}))
-  description="The member of this new pool"
+  description="The member of this new pool."
 }
